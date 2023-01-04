@@ -3,11 +3,11 @@ const animalApp = {};
 //Grab our form with JS
 animalApp.formSubmit = document.querySelector('form');
 //Add event listener which listens for form submit
-animalApp.formSubmit.addEventListener('submit', function (event) { 
+animalApp.formSubmit.addEventListener('submit', function (event) {
 
     // Prevent default behavior (Page refresh)
     event.preventDefault();
-    
+
     // Get the value of the inputs the user has selected:
 
     // Targeting Activity Input
@@ -44,5 +44,21 @@ animalApp.formSubmit.addEventListener('submit', function (event) {
             displayPhotos(jsonData)
         })
 
+    //display photos   
+    function displayPhotos(jsonData) {
+        // choose a random photo from jsonData
+        animalApp.random = Math.floor(Math.random() * jsonData.photos.length);
+        console.log(animalApp.random);
+        //select an image element
+        animalApp.imgElement = document.querySelector('.result-image');
+
+        //update image element with data from photos
+        animalApp.imgElement.src = jsonData.photos[animalApp.random].src.large;
+        animalApp.imgElement.alt = jsonData.photos[animalApp.random].alt;
+
+        // Selecting h3 & adding it's text content: the restaurant NAME
+        animalApp.animalDescription = document.querySelector('.animal-description');
+        animalApp.animalDescription.textContent = jsonData.photos[animalApp.random].alt;
+    }
 
 });
