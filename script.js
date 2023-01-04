@@ -2,6 +2,9 @@
 const animalApp = {};
 //Grab our form with JS
 animalApp.formSubmit = document.querySelector('form');
+
+// Create a setupEventListener function that we can reference in our init function.
+animalApp.setupEventListener = function () {
 //Add event listener which listens for form submit
 animalApp.formSubmit.addEventListener('submit', function (event) {
 
@@ -19,6 +22,8 @@ animalApp.formSubmit.addEventListener('submit', function (event) {
     animalApp.animalInput = document.querySelector('input[name="animal-type"]:checked');
     animalApp.logAnimal = animalApp.animalInput.value;
     console.log(animalApp.logAnimal);
+
+
 
     // construct the URL
     const url = new URL("https://api.pexels.com/v1/search/")
@@ -60,5 +65,10 @@ animalApp.formSubmit.addEventListener('submit', function (event) {
         animalApp.animalDescription = document.querySelector('.animal-description');
         animalApp.animalDescription.textContent = jsonData.photos[animalApp.random].alt;
     }
-
 });
+}/* End of setupEventListener to initialize function */
+        animalApp.init = () => {
+        // init function will call a function to retrieve photos from the pexels API
+        animalApp.setupEventListener();
+    }
+        animalApp.init();
