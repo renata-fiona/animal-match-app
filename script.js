@@ -20,4 +20,29 @@ animalApp.formSubmit.addEventListener('submit', function (event) {
     animalApp.logAnimal = animalApp.animalInput.value;
     console.log(animalApp.logAnimal);
 
+    // construct the URL
+    const url = new URL("https://api.pexels.com/v1/search/")
+    url.search = new URLSearchParams({
+        query: `animal, ${animalApp.logActivity}, ${animalApp.logAnimal}`
+        // query: `animal, ${logActivity}, ${logAnimal}`
+    })
+    const key = `563492ad6f91700001000001fd299bcaf3464911914c8f15b188651a`;
+
+    // fetch from URL
+    fetch(url, {
+        headers: {
+            Authorization: key
+        }
+
+    })
+        .then(function (response) {
+            // convert to json
+            return response.json();
+        })
+        .then(function (jsonData) {
+            console.log(jsonData);
+            displayPhotos(jsonData)
+        })
+
+
 });
