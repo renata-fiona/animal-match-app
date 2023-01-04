@@ -7,12 +7,59 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./styles/styles.css">
 	<title>Animal Match App</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Urbanist:wght@400&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="./styles/styles.css">
 </head>
 
 <body>
-<div class="wrapper">
+	<main>
+		<div class="wrapper">
+			<section class="container">
+				<div class="form-container">
+					<form action="#" method="post" class="quiz-container" name="quiz-container">
+						<!-- Favorite Activity--------------------------->
+						<fieldset class="activity-fieldset">
+							<legend>What is your preferred activity?</legend>
+							<input type="radio" name="favorite-activity" value="sleeping" id="sleeping">
+							<label for="sleeping">sleeping</label>
 
-</div>
+							<input type="radio" name="favorite-activity" value="party" id="partying">
+							<label for="partying">partying</label>
+
+							<input type="radio" name="favorite-activity" value="eating" id="eating">
+							<label for="eating">eating</label>
+
+							<input type="radio" name="favorite-activity" value="running" id="running">
+							<label for="running">running</label>
+						</fieldset><!--End of activity-fieldset-------------->
+						<!-- Animal Type ------------------------- -->
+						<fieldset class="animal-fieldset">
+							<legend>What is your favorite type of animal?</legend>
+
+							<input type="radio" name="animal-type" value="dog" id="dog">
+							<label for="dog">dog</label>
+
+							<input type="radio" name="animal-type" value="cat" id="cat">
+							<label for="cat">cat</label>
+
+							<input type="radio" name="animal-type" value="rabbit" id="rabbit">
+							<label for="rabbit">rabbit</label>
+
+							<input type="radio" name="animal-type" value="any" id="any">
+							<label for="any">any type</label>
+						</fieldset><!--End of fieldset-------------->
+						<!-- Submit Button ------------------------------>
+						<button name="comment-submission" type="submit" class="submit-button">Find my match!</button>
+						<!-- Reset Button ------------------------------>
+						<button type="reset" class="reset-button">Reset Form</button>
+					</form> <!-- End of .quiz-container -->
+				</div> <!-- End of .form-container -->
+
+		</div> <!-- End of .wrapper -->
+	</main>
 	<script src="script.js"></script>
 </body>
 
