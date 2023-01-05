@@ -59,11 +59,37 @@ animalApp.formSubmit.addEventListener('submit', function (event) {
 
         //update image element with data from photos
         animalApp.imgElement.src = jsonData.photos[animalApp.random].src.large;
+        //if the image is decorative then you can put a blank alt attribute
         animalApp.imgElement.alt = jsonData.photos[animalApp.random].alt;
 
-        // Selecting h3 & adding it's text content: the restaurant NAME
+        // Selecting h3 & adding it's text content
         animalApp.animalDescription = document.querySelector('.animal-description');
-        animalApp.animalDescription.textContent = jsonData.photos[animalApp.random].alt;
+
+        // Selecting the type of animal and displaying it
+        animalApp.animalDescription.textContent = `${animalApp.logAnimal}`;
+
+        // Create anchor element.
+        const a = document.createElement('a');
+
+        // Create the text node for anchor element.
+        const link = document.createTextNode('Photographer');
+
+        // Append the text node to anchor element.
+        a.appendChild(link);
+
+        // Set the title.
+        a.title = "Photographer URL";
+
+        // Set the href property.
+        a.href = jsonData.photos[animalApp.random].photographer_url;
+
+        // Append the anchor element to the body.
+        document.getElementById('url').appendChild(a)
+
+        // refresh/reload the page
+        // document.getElementById('url').reset();
+
+
     }
 });
 }/* End of setupEventListener to initialize function */
