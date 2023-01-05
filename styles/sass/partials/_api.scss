@@ -1,6 +1,7 @@
 @use "variables" as *;
 /* API RESPONSE SECTION (Right Column) ---------------- */
 
+
 .form-response {
     background-color: $light-accent;
     flex-basis: 48%;
@@ -28,7 +29,9 @@ img {
     object-fit: cover;
     width: 300px;
     border: 10px solid $secondary;
+    // border-image: linear-gradient(45deg, $primary, $secondary) 1;
     background-color: #15cec27d;
+    margin: 5% 0 2% 0;
 }
 
 .results-text-container,
@@ -41,17 +44,22 @@ img {
 }
 
 .animal-description {
-    font-size: $fs-h1;
+    font-size: $fs-h3;
     text-align: center;
     min-height: 100px;
     min-width: 200px;
-    display: grid;
+    display: none;
     place-items: center;
     border: 8px solid;
     padding: 1rem;
     border-image: linear-gradient(45deg, $primary, $secondary) 1;
 }
 
-.photographer-url {
-    padding: 0;
+.photographer-credit,
+.photographer-link {
+    font-size: $fs-footer;
+}
+
+.photographer-credit {
+    padding: 5% 0 0 0;
 }

@@ -67,29 +67,20 @@ animalApp.formSubmit.addEventListener('submit', function (event) {
 
         // Selecting the type of animal and displaying it
         animalApp.animalDescription.textContent = `${animalApp.logAnimal}`;
+        // Display border around animal type once page is loaded
+        animalApp.animalDescription.style.display = "grid";
 
-        // Create anchor element.
-        const a = document.createElement('a');
-
-        // Create the text node for anchor element.
-        const link = document.createTextNode('Photographer');
-
-        // Append the text node to anchor element.
-        a.appendChild(link);
-
-        // Set the title.
-        a.title = "Photographer URL";
-
-        // Set the href property.
-        a.href = jsonData.photos[animalApp.random].photographer_url;
-
-        // Append the anchor element to the body.
-        document.getElementById('url').appendChild(a)
-
-        // refresh/reload the page
-        // document.getElementById('url').reset();
-
-
+        // Adding photographer credit below image
+        // select p tag for "photography by:"
+        animalApp.photographerCredit = document.querySelector('.photographer-credit');
+        // append "photography by" to the <p> tag
+        animalApp.photographerCredit.textContent = "Photography by:";
+        // Select <a> tag
+        animalApp.photographerName = document.querySelector('.photographer-link');
+        // append photographer's name to the <a> tag
+        animalApp.photographerName.textContent = jsonData.photos[animalApp.random].photographer;
+        // append the href attribute to the <a> tag
+        animalApp.photographerName.href = jsonData.photos[animalApp.random].photographer_url;
     }
 });
 }/* End of setupEventListener to initialize function */

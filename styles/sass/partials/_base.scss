@@ -1,11 +1,12 @@
 @use "variables" as *;
 
-/* STYLES BEGIN ----------------------------------------------------------- */
+/* STYLES BEGIN ------------------------------------------------------------------------ */
 .wrapper {
-    width: 80%;
+    width: 85%;
     max-width: 1200px;
     margin: 0 auto;
 }
+
 /* Basic container styling (backgrounds/format) */
 .h1-container,
 .footer-container {
@@ -23,6 +24,7 @@ html {
 }
 
 h1,
+h2,
 h3,
 p,
 legend,
@@ -34,6 +36,10 @@ a {
     margin: 0;
     font-size: $fs-a;
     font-family: $a-font;
+}
+
+h2 {
+    font-size: $fs-h2;
 }
 
 li {
@@ -78,5 +84,5 @@ label {
 .container {
     display: flex;
     margin-top: 8%;
-    justify-content: space-between
+    justify-content: space-between;
 }
