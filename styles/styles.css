@@ -502,4 +502,24 @@ img {
 .image-credit a {
   font-size: 1.2rem;
   margin-bottom: 0;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 850px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .form-container,
+.form-response {
+    width: 100%;
+    margin: 3% 0;
+    padding: 5% 0;
+  }
+}
+@media (max-width: 650px) {
+  h1 {
+    font-size: 2.8rem;
+  }
 }/*# sourceMappingURL=styles.css.map */
