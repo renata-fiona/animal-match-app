@@ -18,6 +18,13 @@
     border-radius: 5px;
 }
 
+/* MAIN STYLES -----------------------------*/
+.container {
+    display: flex;
+    margin-top: 8%;
+    justify-content: space-between;
+}
+
 /* GLOBAL TYPOGRAPHY STYLES -------------------*/
 html {
     font-size: 62.5%;
@@ -74,15 +81,8 @@ p {
 }
 
 label {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: $label-font;
     font-weight: $fw-body;
     text-transform: uppercase;
     text-align: center;
-}
-
-/* MAIN STYLES -----------------------------*/
-.container {
-    display: flex;
-    margin-top: 8%;
-    justify-content: space-between;
 }

@@ -1,7 +1,6 @@
 @use "variables" as *;
 /* API RESPONSE SECTION (Right Column) ---------------- */
 
-
 .form-response {
     background-color: $light-accent;
     flex-basis: 48%;
@@ -29,7 +28,6 @@ img {
     object-fit: cover;
     width: 300px;
     border: 10px solid $secondary;
-    // border-image: linear-gradient(45deg, $primary, $secondary) 1;
     background-color: #15cec27d;
     margin: 5% 0 2% 0;
 }
