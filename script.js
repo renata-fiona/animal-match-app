@@ -1,91 +1,84 @@
 //Create a namespace object
 const animalApp = {};
-//Grab our form with JS
+//Create a formSubmit variable & use it to select our form.
 animalApp.formSubmit = document.querySelector('form');
 
-// Create a setupEventListener function that we can reference in our init function.
+// Create a setupEventListener function to reference in our init function.
 animalApp.setupEventListener = function () {
-//Add event listener which listens for form submit
-animalApp.formSubmit.addEventListener('submit', function (event) {
-
-    // Prevent default behavior (Page refresh)
-    event.preventDefault();
-
-    // Get the value of the inputs the user has selected:
-
-    // Targeting Activity Input
-    animalApp.activityInput = document.querySelector('input[name=favorite-activity]:checked');
-    animalApp.logActivity = animalApp.activityInput.value;
-    console.log(animalApp.logActivity);
-
-    // Targeting Animal Input
-    animalApp.animalInput = document.querySelector('input[name="animal-type"]:checked');
-    animalApp.logAnimal = animalApp.animalInput.value;
-    console.log(animalApp.logAnimal);
-
-
-
-    // construct the URL
-    const url = new URL("https://api.pexels.com/v1/search/")
-    url.search = new URLSearchParams({
-        query: `animal, ${animalApp.logActivity}, ${animalApp.logAnimal}`
-        // query: `animal, ${logActivity}, ${logAnimal}`
-    })
-    const key = `563492ad6f91700001000001fd299bcaf3464911914c8f15b188651a`;
-
-    // fetch from URL
-    fetch(url, {
-        headers: {
-            Authorization: key
-        }
-
-    })
-        .then(function (response) {
-            // convert to json
-            return response.json();
+    //Add event listener for form submit
+    animalApp.formSubmit.addEventListener('submit', function (event) {
+        // Prevent default behavior (page refresh)
+        event.preventDefault();
+        // Get the value of the inputs the user has selected:
+        // Targeting Activity Input
+        animalApp.activityInput = document.querySelector('input[name=favorite-activity]:checked');
+        animalApp.logActivity = animalApp.activityInput.value;
+        // Targeting Animal Input
+        animalApp.animalInput = document.querySelector('input[name="animal-type"]:checked');
+        animalApp.logAnimal = animalApp.animalInput.value;
+        // Construct the URL
+        const url = new URL("https://api.pexels.com/v1/search/")
+        url.search = new URLSearchParams({
+            query: `${animalApp.logActivity}, ${animalApp.logAnimal}`
         })
-        .then(function (jsonData) {
-            console.log(jsonData);
-            displayPhotos(jsonData)
+        animalApp.key = `563492ad6f91700001000001fd299bcaf3464911914c8f15b188651a`;
+        // Fetch from URL
+        fetch(url, {
+            headers: {
+                Authorization: animalApp.key
+            }
         })
+            .then(function (response) {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error("This call was unsuccessful!");
+                }
+            })
+            .then(function (jsonData) {
+                displayPhotos(jsonData)
+            })
+            .catch((err) => {
+                if (err.message === "Not Found") {
+                    alert("We couldn't find your image, try a different combo!")
+                } else {
+                    alert("Sorry, something unusual happened & I'm not sure what.")
+                }
+            })
+        //Create function to display photos from search query in our HTML 
+        function displayPhotos(jsonData) {
+            // Choose a random photo from those returned to jsonData
+            animalApp.random = Math.floor(Math.random() * jsonData.photos.length);
+            //Select an the <img> element where we want our image to show up.
+            animalApp.imgElement = document.querySelector('.result-image');
+            //Update <img> source with url & size
+            animalApp.imgElement.src = jsonData.photos[animalApp.random].src.large;
+            //Update <img> alt tag
+            animalApp.imgElement.alt = jsonData.photos[animalApp.random].alt;
+            // Selecting h3 (type of animal) & adding it's text content
+            animalApp.animalDescription = document.querySelector('.animal-description');
+            // Selecting the type of animal from user's input and display it
+            animalApp.animalDescription.textContent = `${animalApp.logAnimal}`;
+            // Display border around animal type once answer has loaded
+            animalApp.animalDescription.style.display = "grid";
+            // Adding photographer credit below image:
+            // Select <p class="photographer-credit">
+            animalApp.photographerCredit = document.querySelector('.photographer-credit');
+            // Append "Photography by:" to the <p> tag
+            animalApp.photographerCredit.textContent = "Photography by:";
+            // Select <a class=photographer-link">
+            animalApp.photographerName = document.querySelector('.photographer-link');
+            // Append photographer's name to the <a> tag
+            animalApp.photographerName.textContent = jsonData.photos[animalApp.random].photographer;
+            // Append the href attribute to the <a> tag so it link's to the photographer's profile.
+            animalApp.photographerName.href = jsonData.photos[animalApp.random].photographer_url;
+        } /* End of displayPhotos function */
+    }); /* End of addEventListener for form submit */
+}/* End of setupEventListener function */
 
-    //display photos   
-    function displayPhotos(jsonData) {
-        // choose a random photo from jsonData
-        animalApp.random = Math.floor(Math.random() * jsonData.photos.length);
-        console.log(animalApp.random);
-        //select an image element
-        animalApp.imgElement = document.querySelector('.result-image');
-
-        //update image element with data from photos
-        animalApp.imgElement.src = jsonData.photos[animalApp.random].src.large;
-        //if the image is decorative then you can put a blank alt attribute
-        animalApp.imgElement.alt = jsonData.photos[animalApp.random].alt;
-
-        // Selecting h3 & adding it's text content
-        animalApp.animalDescription = document.querySelector('.animal-description');
-
-        // Selecting the type of animal and displaying it
-        animalApp.animalDescription.textContent = `${animalApp.logAnimal}`;
-        // Display border around animal type once page is loaded
-        animalApp.animalDescription.style.display = "grid";
-
-        // Adding photographer credit below image
-        // select p tag for "photography by:"
-        animalApp.photographerCredit = document.querySelector('.photographer-credit');
-        // append "photography by" to the <p> tag
-        animalApp.photographerCredit.textContent = "Photography by:";
-        // Select <a> tag
-        animalApp.photographerName = document.querySelector('.photographer-link');
-        // append photographer's name to the <a> tag
-        animalApp.photographerName.textContent = jsonData.photos[animalApp.random].photographer;
-        // append the href attribute to the <a> tag
-        animalApp.photographerName.href = jsonData.photos[animalApp.random].photographer_url;
-    }
-});
-}/* End of setupEventListener to initialize function */
-        animalApp.init = () => {
-        // init function will call a function to retrieve photos from the pexels API
-        animalApp.setupEventListener();
-    }
-        animalApp.init();
+// Initialization function:
+animalApp.init = () => {
+    animalApp.setupEventListener();
+}
+// Calling the init function:
+animalApp.init();
