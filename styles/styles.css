@@ -288,6 +288,17 @@ html {
   border-radius: 5px;
 }
 
+/* MAIN STYLES -----------------------------*/
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 8%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 /* GLOBAL TYPOGRAPHY STYLES -------------------*/
 html {
   font-size: 62.5%;
@@ -344,26 +355,15 @@ p {
 }
 
 label {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Arial,Helvetica", sans-serif;
   font-weight: 100;
   text-transform: uppercase;
   text-align: center;
 }
 
-/* MAIN STYLES -----------------------------*/
-.container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-top: 8%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
 /* HEADER STYLES ---------------------------*/
 body {
-  background-image: url(../assets/pexels-sam-lion-5733424.jpg);
+  background-image: url(../assets/yorkshire-terrier-in-cone-hat-on-white-background.jpg);
   min-height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
@@ -404,7 +404,6 @@ fieldset {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  /* position: relative; */
 }
 
 label,
@@ -542,7 +541,7 @@ img {
 
 .photographer-credit,
 .photographer-link {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
 
 .photographer-credit {
@@ -568,7 +567,7 @@ img {
 
 .image-credit,
 .image-credit a {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   margin-bottom: 0;
 }
 
