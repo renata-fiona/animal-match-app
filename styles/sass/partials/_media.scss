@@ -1,7 +1,15 @@
 /* MEDIA QUERIES */
 @use "variables" as *;
 
-@media (max-width: 850px) {
+@media (max-width: 650px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    .wrapper {
+        width: 90%;
+    }
+
     .container {
         flex-direction: column;
         justify-content: center;
@@ -12,13 +20,24 @@
     .form-response {
         width: 100%;
         margin: 3% 0;
+        padding: 0% 0;
+    }
+
+    .results-text-container {
+        margin: 4% 0;
+    }
+
+    .footer-container {
+        margin-top: 3%;
         padding: 5% 0;
     }
+
 }
 
-@media (max-width: 650px) {
-    h1 {
-        font-size: 2.8rem;
-
+@media (max-width: 850px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }
