@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Animal Match App</title>
+	<title>Who is your animal match?</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Urbanist:wght@400&display=swap"
@@ -56,13 +56,14 @@
 							<label for="bird">trail mix</label>
 						</fieldset><!--End of fieldset-------------->
 						<!-- Submit Button ------------------------------>
-						<button name="comment-submission" type="submit" class="submit-button">Find my match!</button>
+						<button name="comment-submission" type="submit" class="submit-button">Find my match!
+						</button>
 						<!-- Reset Button ------------------------------>
 						<button type="reset" class="reset-button">Reset Form</button>
 					</form> <!-- End of .quiz-container -->
 				</div> <!-- End of .form-container -->
 				<!-- API Response Section---------------------------->
-				<div class="form-response">
+				<div class="form-response" id="scroll-to-result">
 					<div class="results-text-container">
 						<h2>Your animal match is:</h2>
 					</div> <!-- End of .results-text-container -->
@@ -83,15 +84,18 @@
 	</main>
 	<footer>
 		<div class="footer-container wrapper">
-			<p>Copyright © 2023 Fiona Freemark and Renata Reinartz.</p>
-			<p class="juno">Prepared For <a href="https://www.junocollege.com">
-					Juno College</a></p>
-			<p class="image-credit">Background Image by <a
-					href="https://www.pexels.com/photo/yorkshire-terrier-in-cone-hat-on-white-background-5733424/">Sam
-					Lion</a>
-			</p>
+			<div class="footer-text">
+				<p>Copyright © 2023 Fiona Freemark and Renata Reinartz.</p>
+				<p class="juno">Prepared For <a href="https://www.junocollege.com">
+						Juno College</a></p>
+				<p class="image-credit">Background Image by <a
+						href="https://www.pexels.com/photo/yorkshire-terrier-in-cone-hat-on-white-background-5733424/">Sam
+						Lion</a>
+				</p><!-- End of .image-credit -->
+			</div><!-- End of .footer-text -->
 		</div><!-- End of footer-container -->
 	</footer><!-- End of footer -->
-	<script src="script.js"></script>
+</body>
+<script src="script.js"></script>
 
 </html>
