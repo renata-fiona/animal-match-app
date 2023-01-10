@@ -17,11 +17,11 @@ animalApp.setupEventListener = function () {
         animalApp.animalInput = document.querySelector('input[name="animal-type"]:checked');
         animalApp.logAnimal = animalApp.animalInput.value;
         // Construct the URL
-        const url = new URL("https://api.pexels.com/v1/search/")
+        const url = new URL('https://api.pexels.com/v1/search/')
         url.search = new URLSearchParams({
             query: `${animalApp.logActivity}, ${animalApp.logAnimal}`
         })
-        animalApp.key = `563492ad6f91700001000001fd299bcaf3464911914c8f15b188651a`;
+        animalApp.key = '563492ad6f91700001000001fd299bcaf3464911914c8f15b188651a';
         // Fetch from URL
         fetch(url, {
             headers: {
@@ -32,19 +32,20 @@ animalApp.setupEventListener = function () {
                 if (response.ok) {
                     return response.json();
                 } else {
-                    throw new Error("This call was unsuccessful!");
+                    throw new Error('This call was unsuccessful!');
                 }
             })
             .then(function (jsonData) {
                 displayPhotos(jsonData)
             })
             .catch((err) => {
-                if (err.message === "Not Found") {
-                    alert("We couldn't find your image, try a different combo!")
+                if (err.message === 'Not Found') {
+                    alert('We could not find your image, try a different combo!')
                 } else {
-                    alert("Sorry, something unusual happened & I'm not sure what.")
+                    alert('Sorry, something unusual happened & I am not sure what.')
                 }
             })
+
         //Create function to display photos from search query in our HTML 
         function displayPhotos(jsonData) {
             // Choose a random photo from those returned to jsonData
@@ -60,18 +61,23 @@ animalApp.setupEventListener = function () {
             // Selecting the type of animal from user's input and display it
             animalApp.animalDescription.textContent = `${animalApp.logAnimal}`;
             // Display border around animal type once answer has loaded
-            animalApp.animalDescription.style.display = "grid";
+            animalApp.animalDescription.style.display = 'grid';
             // Adding photographer credit below image:
-            // Select <p class="photographer-credit">
+            // Select <p class='photographer-credit'>
             animalApp.photographerCredit = document.querySelector('.photographer-credit');
-            // Append "Photography by:" to the <p> tag
-            animalApp.photographerCredit.textContent = "Photography by:";
-            // Select <a class=photographer-link">
+            // Append 'Photography by:' to the <p> tag
+            animalApp.photographerCredit.textContent = 'Photography by:';
+            // Select <a class=photographer-link'>
             animalApp.photographerName = document.querySelector('.photographer-link');
             // Append photographer's name to the <a> tag
             animalApp.photographerName.textContent = jsonData.photos[animalApp.random].photographer;
             // Append the href attribute to the <a> tag so it link's to the photographer's profile.
             animalApp.photographerName.href = jsonData.photos[animalApp.random].photographer_url;
+            //Smooth scroll for mobile on submit button
+            //Select the ID for the position we want the page to scroll to
+            animalApp.scrollToResult = document.querySelector('#scroll-to-result');
+            // Use scrollIntoView() to scroll down to our ID
+            animalApp.scrollToResult.scrollIntoView();
         } /* End of displayPhotos function */
     }); /* End of addEventListener for form submit */
 }/* End of setupEventListener function */
