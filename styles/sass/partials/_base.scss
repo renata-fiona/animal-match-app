@@ -85,5 +85,7 @@ label {
     font-family: $label-font;
     font-weight: $fw-body;
     text-transform: uppercase;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
