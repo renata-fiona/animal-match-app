@@ -438,6 +438,7 @@ label {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  max-height: 42px;
 }
 
 button {
