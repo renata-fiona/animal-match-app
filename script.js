@@ -9,6 +9,14 @@ animalApp.setupEventListener = function () {
     animalApp.formSubmit.addEventListener('submit', function (event) {
         // Prevent default behavior (page refresh)
         event.preventDefault();
+
+        // ------------Loading Animation-------------
+        // Make a variable called loaderAnimation and set it to a string that includes an an icon with the class "loader". The icon will show up as we wait for our API call to return.
+        animalApp.loaderAnimation = '<i class="fa-solid fa-paw loader"></i>';
+        // Select our .img-container and change the innerHTML to be the icon that we outlined in our loaderAnimation variable.
+        document.querySelector('.img-container').innerHTML = animalApp.loaderAnimation;
+        // ------------------------------------------------
+
         // Get the value of the inputs the user has selected:
         // Targeting Activity Input
         animalApp.activityInput = document.querySelector('input[name=favorite-activity]:checked');
@@ -50,6 +58,12 @@ animalApp.setupEventListener = function () {
         function displayPhotos(jsonData) {
             // Choose a random photo from those returned to jsonData
             animalApp.random = Math.floor(Math.random() * jsonData.photos.length);
+
+            // ------------Loading Animation Edits-------------
+            // Select our .img-container (which now contains our loading animation) and replace its innerHTML with an <img> element with the class of "result-image"
+            document.querySelector('.img-container').innerHTML = '<img class="result-image"></img>';
+            // ------------------------------------------------
+
             //Select an the <img> element where we want our image to show up.
             animalApp.imgElement = document.querySelector('.result-image');
             //Update <img> source with url & size
