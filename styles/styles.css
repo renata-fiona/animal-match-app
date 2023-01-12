@@ -359,7 +359,6 @@ label {
   font-family: "Arial,Helvetica", sans-serif;
   font-weight: 100;
   text-transform: uppercase;
-  text-align: center;
 }
 
 /* HEADER STYLES ---------------------------*/
@@ -430,6 +429,15 @@ button {
 
 label {
   width: 48%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 button {
@@ -475,6 +483,8 @@ button:focus {
   background-color: rgba(255, 255, 255, 0.85);
   -ms-flex-preferred-size: 48%;
       flex-basis: 48%;
+  padding: 2% 0;
+  border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -488,13 +498,13 @@ button:focus {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  padding: 2% 0;
-  border-radius: 5px;
 }
 
 .img-container {
   max-height: 300px;
   max-width: 300px;
+  margin-bottom: 5%;
+  text-align: center;
   width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -505,16 +515,25 @@ button:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 5%;
-  text-align: center;
+}
+
+.fa-solid {
+  color: #EB5C52;
+  font-size: 10rem;
 }
 
 img {
-  height: 300px;
-  border-radius: 50%;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.6rem;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.fa-solid,
+img {
+  height: 300px;
   width: 300px;
+  border-radius: 50%;
   border: 10px solid #15CEC1;
   margin: 5% 0 2% 0;
   display: -webkit-box;
@@ -526,13 +545,6 @@ img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-family: "Quicksand", sans-serif;
-  font-size: 1.6rem;
-}
-
-.fa-solid {
-  color: #EB5C52;
-  font-size: 10rem;
 }
 
 .loader {
@@ -557,8 +569,13 @@ img {
     opacity: 0.1;
   }
 }
+.results-description {
+  min-height: 40%;
+}
+
 .results-text-container,
 .results-description {
+  width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -572,7 +589,6 @@ img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 90%;
 }
 
 .animal-description {
@@ -580,10 +596,10 @@ img {
   text-align: center;
   min-height: 100px;
   min-width: 200px;
+  padding: 1rem;
+  border: 8px solid;
   display: none;
   place-items: center;
-  border: 8px solid;
-  padding: 1rem;
   -o-border-image: linear-gradient(45deg, #EB5C52, #15CEC1) 1;
      border-image: linear-gradient(45deg, #EB5C52, #15CEC1) 1;
 }
@@ -614,10 +630,6 @@ img {
   text-align: center;
 }
 
-.juno {
-  display: block;
-}
-
 .image-credit,
 .image-credit a {
   font-size: 1.6rem;
@@ -634,6 +646,10 @@ img {
     height: 250px;
     width: 250px;
   }
+  .fa-solid {
+    height: 250px;
+    width: 250px;
+  }
   .wrapper {
     width: 95%;
   }
@@ -644,6 +660,7 @@ img {
 @media (max-width: 650px) {
   h1 {
     font-size: 2.8rem;
+    padding: 2%;
   }
   .container {
     -webkit-box-orient: vertical;
@@ -661,7 +678,7 @@ img {
 .form-response {
     width: 100%;
     margin: 3% 0;
-    padding: 20px;
+    padding: 6% 4%;
   }
   .results-text-container {
     margin: 4% 0;

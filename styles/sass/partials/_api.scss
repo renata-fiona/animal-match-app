@@ -4,37 +4,23 @@
 .form-response {
     background-color: $light-accent;
     flex-basis: 48%;
+    padding: 2% 0;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    padding: 2% 0;
-    border-radius: 5px;
 }
 
 .img-container {
     max-height: 300px;
     max-width: 300px;
+    margin-bottom: 5%;
+    text-align: center;
     width: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5%;
-    text-align: center;
-}
-
-img {
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-    width: 300px;
-    border: 10px solid $secondary;
-    margin: 5% 0 2% 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: $heading-font;
-    font-size: $fs-body;
 }
 
 .fa-solid {
@@ -42,9 +28,26 @@ img {
     font-size: 10rem;
 }
 
+img {
+    font-family: $heading-font;
+    font-size: $fs-body;
+    object-fit: cover;
+}
+
+.fa-solid,
+img {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    border: 10px solid $secondary;
+    margin: 5% 0 2% 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .loader {
     animation: loader 5s infinite;
-
 }
 
 @keyframes loader {
@@ -62,13 +65,17 @@ img {
     }
 }
 
+.results-description {
+    min-height: 40%;
+}
+
 .results-text-container,
 .results-description {
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 90%;
 }
 
 .animal-description {
@@ -76,10 +83,10 @@ img {
     text-align: center;
     min-height: 100px;
     min-width: 200px;
+    padding: 1rem;
+    border: 8px solid;
     display: none;
     place-items: center;
-    border: 8px solid;
-    padding: 1rem;
     border-image: linear-gradient(45deg, $primary, $secondary) 1;
 }
 

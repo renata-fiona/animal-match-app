@@ -15,8 +15,6 @@ form {
     display: flex;
 }
 
-
-
 fieldset {
     padding: 5% 0;
     margin-bottom: 5%;
@@ -39,6 +37,9 @@ button {
 
 label {
     width: 48%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 button {
