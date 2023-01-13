@@ -2,27 +2,27 @@
 @use "variables" as *;
 
 @media (max-width: 850px) {
+    .form-response {
+        min-height: 574px;
+    }
+
     .img-container {
         max-height: 250px;
         max-width: 250px;
     }
 
-    img {
-        height: 250px;
-        width: 250px;
-    }
-
+    img,
     .fa-solid {
         height: 250px;
         width: 250px;
     }
 
-    .wrapper {
-        width: 95%;
-    }
-
     label {
         padding: 10px 16px;
+    }
+
+    .wrapper {
+        width: 95%;
     }
 
 }
