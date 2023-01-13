@@ -1,0 +1,15 @@
+@use "variables" as *;
+
+/* FOOTER STYLES ---------------------------------------------- */
+.footer-container {
+    margin-top: 2.5%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.image-credit,
+.image-credit a {
+    font-size: $fs-footer;
+    margin-bottom: 0;
+}

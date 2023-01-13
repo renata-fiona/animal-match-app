@@ -5,24 +5,29 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./styles/styles.css">
-	<title>Animal Match App</title>
+	<title>Who is your animal match?</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Urbanist:wght@400&display=swap"
 		rel="stylesheet">
-	<link rel="stylesheet" href="./styles/styles.css">
+	<script src="https://kit.fontawesome.com/7114ccf32d.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="styles/styles.css?">
 </head>
 
 <body>
+	<header>
+		<div class="h1-container wrapper">
+			<h1>Who is your animal match?</h1>
+		</div>
+	</header><!--close out header-------------->
 	<main>
 		<div class="wrapper">
 			<section class="container">
 				<div class="form-container">
-					<form action="#" method="post" class="quiz-container" name="quiz-container">
+					<form action="submit" method="post" class="quiz-container" name="quiz-container">
 						<!-- Favorite Activity--------------------------->
 						<fieldset class="activity-fieldset">
-							<legend>What is your preferred activity?</legend>
+							<legend>What do you like to do best?</legend>
 							<input type="radio" name="favorite-activity" value="sleeping" id="sleeping">
 							<label for="sleeping">sleeping</label>
 
@@ -37,30 +42,61 @@
 						</fieldset><!--End of activity-fieldset-------------->
 						<!-- Animal Type ------------------------- -->
 						<fieldset class="animal-fieldset">
-							<legend>What is your favorite type of animal?</legend>
+							<legend>What is your favorite food?</legend>
 
 							<input type="radio" name="animal-type" value="dog" id="dog">
-							<label for="dog">dog</label>
+							<label for="dog">steak</label>
 
 							<input type="radio" name="animal-type" value="cat" id="cat">
-							<label for="cat">cat</label>
+							<label for="cat">seafood</label>
 
 							<input type="radio" name="animal-type" value="rabbit" id="rabbit">
-							<label for="rabbit">rabbit</label>
+							<label for="rabbit">salad</label>
 
-							<input type="radio" name="animal-type" value="any" id="any">
-							<label for="any">any type</label>
+							<input type="radio" name="animal-type" value="bird" id="bird">
+							<label for="bird">trail mix</label>
 						</fieldset><!--End of fieldset-------------->
 						<!-- Submit Button ------------------------------>
-						<button name="comment-submission" type="submit" class="submit-button">Find my match!</button>
+						<button name="comment-submission" type="submit" class="submit-button">Find my match!
+						</button>
 						<!-- Reset Button ------------------------------>
 						<button type="reset" class="reset-button">Reset Form</button>
 					</form> <!-- End of .quiz-container -->
 				</div> <!-- End of .form-container -->
-
+				<!-- API Response Section---------------------------->
+				<div class="form-response" id="scroll-to-result">
+					<div class="results-text-container">
+						<h2 class="your-match">Your animal match is:</h2>
+					</div> <!-- End of .results-text-container -->
+					<!-- Image Container -->
+					<div class="img-container">
+						<img src="./assets/question-mark.png" alt="question-mark" class="result-image">
+					</div><!-- End of .img-container -->
+					<!-- Text Container -->
+					<div class="results-description">
+						<h3 class="animal-description">
+							</h3>
+							<p class="photographer-credit">
+							</p>
+							<a class="photographer-link"></a>
+					</div><!-- End of .results-description -->
+				</div> <!-- End of .form-response -->
 		</div> <!-- End of .wrapper -->
 	</main>
-	<script src="script.js"></script>
+	<footer>
+		<div class="footer-container wrapper">
+			<div class="footer-text">
+				<p>Copyright © 2023 Fiona Freemark and Renata Reinartz.</p>
+				<p>Prepared For <a href="https://www.junocollege.com">
+						Juno College</a></p>
+				<p class="image-credit">Background Image by <a
+						href="https://www.pexels.com/photo/yorkshire-terrier-in-cone-hat-on-white-background-5733424/">Sam
+						Lion</a>
+				</p><!-- End of .image-credit -->
+			</div><!-- End of .footer-text -->
+		</div><!-- End of footer-container -->
+	</footer><!-- End of footer -->
 </body>
+<script src="script.js"></script>
 
 </html>

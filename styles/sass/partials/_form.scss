@@ -1,0 +1,81 @@
+@use "variables" as *;
+
+/* FORM CONTAINER STYLES (Left Column) ---------------------- */
+.form-container {
+    background-color: $light-accent;
+    width: 48%;
+    border-radius: 5px;
+    padding: 2em 1em;
+}
+
+form {
+    padding: 20px;
+    flex-basis: 48%;
+    flex-direction: column;
+    display: flex;
+}
+
+fieldset {
+    padding: 5% 0;
+    margin-bottom: 5%;
+    border: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+label,
+button {
+    padding: 10px 20px;
+    background-color: $primary;
+    border: 1px solid $primary;
+    margin-bottom: 5%;
+    color: #fff;
+    font-family: $button-font;
+    border-radius: 5px;
+}
+
+label {
+    width: 48%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 42px;
+}
+
+button {
+    width: 100%;
+    align-self: center;
+}
+
+.submit-button {
+    border: solid 1px $primary;
+}
+
+input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+label:hover,
+label:focus,
+input[type="radio"]:checked+label,
+input[type="radio"]:focus+label,
+button:hover,
+button:focus {
+    border: solid 1px $secondary;
+    background-color: $secondary;
+}
+
+.reset-button {
+    background-color: rgba(0, 0, 0, 0.692);
+    border: 1px solid rgba(0, 0, 0, 0);
+}
+
+.reset-button:hover,
+.reset-button:focus {
+    border: solid 1px rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.377);
+    color: rgba(255, 255, 255, 0.712);
+}
